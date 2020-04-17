@@ -1,1 +1,38 @@
-<p>products works!</p>
+<h2>Hardware Zone</h2>
+<p>Welcome to Hardware Zone, the prime destination for all your computer hardware needs! Building a new rig, or just
+    looking for an upgrade? Come and have a look around our product catalogue! We're sure you'll find what you're
+    looking for!</p>
+
+<div class="row">
+    <div class="col col-md-2 col-sm-12 mt-2">
+        <div class="h5">Categories</div>
+
+        <ul>
+            <li *ngFor="let c of productCategories" (click)="filterProducts(c)">{{c}}</li>
+        </ul>
+    </div>
+
+    <div class="col col-md-10">
+        <h5>Products</h5>
+        <div *ngFor="let product of filteredProducts">
+            <div class="row">
+                <div class="col">
+                    <div class="font-weight-bold">{{product.name}}</div>
+                    <div>{{product.price | currency:'Rs. '}}</div>
+                    <div *ngIf="product.quantity > 0; else outOfStock">
+                        <button class="btn btn-primary mb-2" (click)="addToCart(product)">Add to Cart</button>
+                    </div>
+
+                    <ng-template #outOfStock>
+                        <div class="text-danger" *ngIf="product.quantity == 0">Out of stock!</div>
+                    </ng-template>
+                </div>
+
+                <div class="col text-right">
+                    <img src="{{product.imagePath}}" height="200" width="200" alt="{{product.name}}.jpg">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
