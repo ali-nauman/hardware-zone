@@ -11,7 +11,7 @@ export class CartService {
 
   constructor() { }
 
-  addToCart(product: Product) {
+  addToCart(product: Product): void {
     let item = this.items.find(element => element.item.name == product.name);
 
     if (item != undefined) {
@@ -24,7 +24,21 @@ export class CartService {
     this.totalCost += product.price;
   }
 
-  getItems() {
+  getItemsCount(): number {
+    return this.items.length;
+  }
+
+  getTotalItemsCount(): number {
+    let totalCount = 0;
+
+    this.items.forEach(i => {
+      totalCount += i.quantity;
+    });
+
+    return totalCount;
+  }
+
+  getItems(): CartItem[] {
     return this.items;
   }
 
