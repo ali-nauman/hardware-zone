@@ -8,7 +8,7 @@
         <div class="h5">Categories</div>
 
         <ul class="list-group">
-            <li class="list-group-item" *ngFor="let c of productCategories" (click)="filterProducts(c)">{{c}}</li>
+            <button [class.active]="currentFilter == c" class="list-group-item list-group-item-action" *ngFor="let c of productCategories" (click)="filterProducts(c)">{{c}}</button>
         </ul>
     </div>
 

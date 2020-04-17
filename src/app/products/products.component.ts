@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PRODUCTS } from '../mock-products';
 import { CartService } from '../cart.service';
 import { Product } from '../Product';
+import { EventManager } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-products',
@@ -10,9 +11,11 @@ import { Product } from '../Product';
 })
 
 export class ProductsComponent implements OnInit {
+  activeItemClass = "list-group-item list-group-item-action active";
+  currentFilter = "All";
   filteredProducts = PRODUCTS;
   productCategories: string[];
-
+  
   constructor(private cartService: CartService) {
   }
 
@@ -32,6 +35,8 @@ export class ProductsComponent implements OnInit {
   }
 
   filterProducts(filter: string): void {
+    this.currentFilter = filter;
+    
     if (filter == "All") {
       this.filteredProducts = PRODUCTS;
     } else {
