@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CartItem } from './cart/CartItem';
-import { Product } from './products/Product';
+import { CartItem } from './CartItem';
+import { Product } from './Product';
 
 @Injectable({
   providedIn: 'root'
@@ -24,18 +24,8 @@ export class CartService {
     this.totalCost += product.price;
   }
 
-  getItemsCount(): number {
-    return this.items.length;
-  }
-
-  getTotalItemsCount(): number {
-    let totalCount = 0;
-
-    this.items.forEach(i => {
-      totalCount += i.quantity;
-    });
-
-    return totalCount;
+  clearCart(): void {
+    this.items = [];
   }
 
   getItems(): CartItem[] {
@@ -46,8 +36,13 @@ export class CartService {
     return this.totalCost;
   }
 
-  clearCart() {
-    this.items = [];
-    return this.items;
+  getTotalItemsCount(): number {
+    let totalCount = 0;
+
+    this.items.forEach(i => {
+      totalCount += i.quantity;
+    });
+
+    return totalCount;
   }
 }

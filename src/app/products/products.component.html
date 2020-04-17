@@ -7,8 +7,8 @@
     <div class="col col-md-2 col-sm-12 mt-2">
         <div class="h5">Categories</div>
 
-        <ul>
-            <li *ngFor="let c of productCategories" (click)="filterProducts(c)">{{c}}</li>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let c of productCategories" (click)="filterProducts(c)">{{c}}</li>
         </ul>
     </div>
 

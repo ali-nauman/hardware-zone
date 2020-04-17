@@ -1,20 +1,4 @@
-ul {
-    list-style-type: none;
-    border: 1px solid black;
-}
-
-li {
-    border: 1px solid violet;
-}
-
 li:hover {
-    background-color: dodgerblue;
-}
-
-li:active {
-    background-color: dodgerblue;
-}
-
-li:visited {
-    background-color: dodgerblue;
+    background-color: dodgerblue !important;
+    color: white !important;
 }
