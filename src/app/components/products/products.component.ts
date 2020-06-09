@@ -28,11 +28,6 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  addToCart(product: Product): void {
-    --product.quantity;
-    this.cartService.addToCart(product);
-  }
-
   filterProducts(filter: string): void {
     this.currentFilter = filter;
 

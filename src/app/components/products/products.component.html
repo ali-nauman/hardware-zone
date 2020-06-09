@@ -8,31 +8,15 @@
         <div class="h5">Categories</div>
 
         <ul class="list-group">
-            <button [class.active]="currentFilter == c" class="list-group-item list-group-item-action" *ngFor="let c of productCategories" (click)="filterProducts(c)">{{c}}</button>
+            <button [class.active]="currentFilter == c" class="list-group-item list-group-item-action"
+                *ngFor="let c of productCategories" (click)="filterProducts(c)">{{c}}</button>
         </ul>
     </div>
 
     <div class="col col-md-10">
         <h5>Products</h5>
         <div *ngFor="let product of filteredProducts">
-            <div class="row">
-                <div class="col">
-                    <div class="font-weight-bold">{{product.name}}</div>
-                    <div>{{product.price | currency:'Rs. '}}</div>
-                    <div *ngIf="product.quantity > 0; else outOfStock">
-                        <button class="btn btn-primary mb-2" (click)="addToCart(product)">Add to Cart</button>
-                    </div>
-
-                    <ng-template #outOfStock>
-                        <div class="text-danger" *ngIf="product.quantity == 0">Out of stock!</div>
-                    </ng-template>
-                </div>
-
-                <div class="col text-right">
-                    <img src="{{product.imagePath}}" height="200" width="200" alt="{{product.name}}.jpg">
-                </div>
-
-            </div>
+            <app-product-card [product]="product"></app-product-card>
         </div>
     </div>
 </div>
