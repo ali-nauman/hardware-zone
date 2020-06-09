@@ -6,7 +6,7 @@ import { Product } from '../models/Product';
   providedIn: 'root'
 })
 export class CartService {
-  items = [];
+  items: CartItem[] = [];
   totalCost = 0;
 
   constructor() { }
@@ -32,7 +32,7 @@ export class CartService {
     return this.items;
   }
 
-  getTotalCost() {
+  getTotalCost(): number {
     return this.totalCost;
   }
 
@@ -44,5 +44,9 @@ export class CartService {
     });
 
     return totalCount;
+  }
+
+  isCartEmpty(): boolean {
+    return this.items.length == 0;
   }
 }
