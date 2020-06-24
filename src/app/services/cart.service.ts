@@ -7,21 +7,18 @@ import { Product } from '../models/Product';
 })
 export class CartService {
   items: CartItem[] = [];
-  totalCost = 0;
 
   constructor() { }
 
   addToCart(product: Product): void {
-    let item = this.items.find(element => element.item.name == product.name);
+    let item = this.items.find(element => element.product.name === product.name);
 
     if (item != undefined) {
-      item.quantity++;
+      ++item.quantity;
     } else {
-      let cartItem: CartItem = { item: product, quantity: 1 };
+      let cartItem: CartItem = { product: product, quantity: 1 };
       this.items.push(cartItem);
     }
-
-    this.totalCost += product.price;
   }
 
   clearCart(): void {
@@ -33,20 +30,14 @@ export class CartService {
   }
 
   getTotalCost(): number {
-    return this.totalCost;
+    return this.items.reduce((interimTotal, item) => interimTotal + item.product.price * item.quantity, 0);
   }
 
   getTotalItemsCount(): number {
-    let totalCount = 0;
-
-    this.items.forEach(i => {
-      totalCount += i.quantity;
-    });
-
-    return totalCount;
+    return this.items.reduce((interimTotalCount, item) => interimTotalCount + item.quantity, 0);
   }
 
   isCartEmpty(): boolean {
-    return this.items.length == 0;
+    return this.items.length === 0;
   }
 }
