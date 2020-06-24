@@ -1,7 +1,7 @@
 export interface Product {
     name: string;
     category: string;
-    quantity: number;
+    stockSize: number;
     price: number;
     imagePath: string;
 }
