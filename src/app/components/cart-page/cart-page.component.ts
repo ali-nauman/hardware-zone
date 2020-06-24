@@ -2,17 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  selector: 'app-cart-page',
+  templateUrl: './cart-page.component.html',
+  styleUrls: ['./cart-page.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartPageComponent implements OnInit {
   cartItems = [];
   totalCost: number;
 
-  constructor(private cartService: CartService) {
-    this.cartItems = this.cartService.getItems();
-  }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getItems();
@@ -21,7 +19,7 @@ export class CartComponent implements OnInit {
 
   clearCart(): void {
     this.cartService.clearCart();
-    this.cartItems = this.cartService.getItems();
+    this.cartItems = [];
     this.totalCost = 0;
   }
 }
