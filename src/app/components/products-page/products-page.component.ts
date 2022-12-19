@@ -1,26 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/Product';
 import { PRODUCTS } from '../../data/mock-products';
-import { Product } from 'src/app/Models/Product';
 
 @Component({
   selector: 'app-products-page',
   templateUrl: './products-page.component.html',
-  styleUrls: ['./products-page.component.css']
+  styleUrls: ['./products-page.component.css'],
 })
-
 export class ProductsPageComponent implements OnInit {
-  activeItemClass = "list-group-item list-group-item-action active";
-  categoryFilter = "All";
+  activeItemClass = 'list-group-item list-group-item-action active';
+  categoryFilter = 'All';
   products: Product[] = [];
   productCategories: string[] = [];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.products = PRODUCTS;
-    this.productCategories.push("All");
+    this.productCategories.push('All');
 
-    PRODUCTS.forEach(p => {
+    PRODUCTS.forEach((p) => {
       if (this.productCategories.indexOf(p.category) === -1) {
         this.productCategories.push(p.category);
       }
@@ -30,10 +29,12 @@ export class ProductsPageComponent implements OnInit {
   filterByCategory(category: string): void {
     this.categoryFilter = category;
 
-    if (category == "All") {
+    if (category == 'All') {
       this.products = PRODUCTS;
     } else {
-      this.products = PRODUCTS.filter(product => product.category === category);
+      this.products = PRODUCTS.filter(
+        (product) => product.category === category
+      );
     }
   }
 }
