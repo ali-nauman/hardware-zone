@@ -8,17 +8,15 @@ import { Product } from '../models/Product';
 export class CartService {
   items: CartItem[] = [];
 
-  constructor() {}
-
   addToCart(product: Product): void {
-    let item = this.items.find(
+    const item = this.items.find(
       element => element.product.name === product.name
     );
 
     if (item != undefined) {
       ++item.quantity;
     } else {
-      let cartItem: CartItem = { product: product, quantity: 1 };
+      const cartItem: CartItem = { product: product, quantity: 1 };
       this.items.push(cartItem);
     }
   }

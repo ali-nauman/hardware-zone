@@ -10,7 +10,7 @@
     </div>
 
     <ng-template #outOfStock>
-      <div class="text-danger" *ngIf="product.stockSize == 0">
+      <div class="text-danger" *ngIf="product.stockSize === 0">
         Out of stock!
       </div>
     </ng-template>

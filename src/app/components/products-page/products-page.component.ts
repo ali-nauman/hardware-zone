@@ -13,8 +13,6 @@ export class ProductsPageComponent implements OnInit {
   products: Product[] = [];
   productCategories: string[] = [];
 
-  constructor() {}
-
   ngOnInit(): void {
     this.products = PRODUCTS;
     this.productCategories.push('All');
