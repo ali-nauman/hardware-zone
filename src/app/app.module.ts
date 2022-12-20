@@ -1,13 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductsPageComponent } from './components/products-page/products-page.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
-import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ProductsPageComponent } from './components/products-page/products-page.component';
+import { NavigationBarComponent } from './shared';
 
 @NgModule({
   declarations: [
@@ -15,10 +15,9 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     ProductsPageComponent,
     CartPageComponent,
     ProductCardComponent,
-    NavigationBarComponent,
     HomePageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, NavigationBarComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
