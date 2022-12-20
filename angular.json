@@ -110,7 +110,6 @@
       }
     }
   },
-  "defaultProject": "hardware-zone",
   "cli": {
     "analytics": "fe9f1742-a310-416f-8d45-0a64700b2b6a",
     "packageManager": "pnpm"
