@@ -16,13 +16,10 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     CartPageComponent,
     ProductCardComponent,
     NavigationBarComponent,
-    HomePageComponent
+    HomePageComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

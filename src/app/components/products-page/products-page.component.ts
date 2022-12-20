@@ -19,7 +19,7 @@ export class ProductsPageComponent implements OnInit {
     this.products = PRODUCTS;
     this.productCategories.push('All');
 
-    PRODUCTS.forEach((p) => {
+    PRODUCTS.forEach(p => {
       if (this.productCategories.indexOf(p.category) === -1) {
         this.productCategories.push(p.category);
       }
@@ -32,9 +32,7 @@ export class ProductsPageComponent implements OnInit {
     if (category == 'All') {
       this.products = PRODUCTS;
     } else {
-      this.products = PRODUCTS.filter(
-        (product) => product.category === category
-      );
+      this.products = PRODUCTS.filter(product => product.category === category);
     }
   }
 }

@@ -3,15 +3,17 @@ import { CartItem } from '../models/CartItem';
 import { Product } from '../models/Product';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
   items: CartItem[] = [];
 
-  constructor() { }
+  constructor() {}
 
   addToCart(product: Product): void {
-    let item = this.items.find(element => element.product.name === product.name);
+    let item = this.items.find(
+      element => element.product.name === product.name
+    );
 
     if (item != undefined) {
       ++item.quantity;
@@ -30,11 +32,17 @@ export class CartService {
   }
 
   getTotalCost(): number {
-    return this.items.reduce((interimTotal, item) => interimTotal + item.product.price * item.quantity, 0);
+    return this.items.reduce(
+      (interimTotal, item) => interimTotal + item.product.price * item.quantity,
+      0
+    );
   }
 
   getTotalItemsCount(): number {
-    return this.items.reduce((interimTotalCount, item) => interimTotalCount + item.quantity, 0);
+    return this.items.reduce(
+      (interimTotalCount, item) => interimTotalCount + item.quantity,
+      0
+    );
   }
 
   isCartEmpty(): boolean {
