@@ -7,5 +7,6 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
 @NgModule({
   declarations: [ProductsComponent, ProductCardComponent],
   imports: [CommonModule, HttpClientModule],
+  exports: [ProductsComponent],
 })
 export class ProductsModule {}

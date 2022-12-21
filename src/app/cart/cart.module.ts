@@ -6,5 +6,6 @@ import { CartComponent } from '.';
 @NgModule({
   declarations: [CartComponent],
   imports: [CommonModule],
+  exports: [CartComponent],
 })
 export class CartModule {}
