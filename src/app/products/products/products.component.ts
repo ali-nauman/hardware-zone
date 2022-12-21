@@ -13,6 +13,7 @@ import { ProductsService } from '../products.service';
 export class ProductsComponent implements OnInit {
   products$!: Observable<Product[]>;
   productCategories: ProductCategory[] = Object.values(ProductCategory);
+  selectedCategory = ProductCategory.ALL;
 
   constructor(
     private cartService: CartService,
@@ -24,7 +25,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onFilterClick(category: ProductCategory) {
-    this.products$ = this.productsService.getByCategory(category);
+    this.selectedCategory = category;
   }
 
   onAddProduct(product: Product) {
