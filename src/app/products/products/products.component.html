@@ -24,7 +24,9 @@
 
   <div class="row">
     <div
-      *ngFor="let product of products$ | async"
+      *ngFor="
+        let product of products$ | async | filterByCategory : selectedCategory
+      "
       class="col col-xs-12 col-sm-12 col-lg-4 mt-2"
     >
       <app-product-card
