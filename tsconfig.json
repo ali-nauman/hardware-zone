@@ -13,7 +13,8 @@
     "importHelpers": true,
     "target": "ES2020",
     "lib": ["ESNext", "DOM"],
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "resolveJsonModule": true
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
