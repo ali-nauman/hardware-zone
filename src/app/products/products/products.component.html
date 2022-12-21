@@ -6,10 +6,9 @@
     for!
   </p>
 
-  <div class="row border border-dark">
-    <form>
-      <label>Category</label>
-
+  <div class="row">
+    <label>
+      Category
       <select>
         <option
           *ngFor="let category of productCategories"
@@ -19,7 +18,7 @@
           {{ category }}
         </option>
       </select>
-    </form>
+    </label>
   </div>
 
   <div class="row">
