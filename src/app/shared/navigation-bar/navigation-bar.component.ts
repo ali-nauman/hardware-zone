@@ -13,11 +13,11 @@ export class NavigationBarComponent {
   links = [
     {
       name: 'Products',
-      link: '/products',
+      link: 'products',
     },
     {
       name: 'Cart',
-      link: '/cart',
+      link: 'cart',
     },
   ];
 }

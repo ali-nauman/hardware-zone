@@ -6,16 +6,17 @@ import { ProductsComponent } from './products/products/products.component';
 
 const routes: Routes = [
   {
-    path: '/products',
+    path: 'products',
     component: ProductsComponent,
   },
   {
-    path: '/cart',
+    path: 'cart',
     component: CartComponent,
   },
   {
     path: '',
-    redirectTo: '/products',
+    redirectTo: 'products',
+    pathMatch: 'full',
   },
 ];
 
