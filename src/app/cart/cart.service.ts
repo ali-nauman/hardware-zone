@@ -1,49 +1,49 @@
 import { Injectable } from '@angular/core';
-import { CartItem } from '../models/CartItem';
-import { Product } from '../models/Product';
+import { BehaviorSubject, Observable } from 'rxjs';
+
+import { CartItem } from '.';
+import { Product } from '../products';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  items: CartItem[] = [];
+  private items$ = new BehaviorSubject<CartItem[]>([]);
 
   addToCart(product: Product): void {
-    const item = this.items.find(
-      element => element.product.name === product.name
-    );
+    const items = this.items$.getValue();
 
-    if (item != undefined) {
+    const item = items.find(i => i.product.name === product.name);
+
+    if (item !== undefined) {
       ++item.quantity;
     } else {
       const cartItem: CartItem = { product: product, quantity: 1 };
-      this.items.push(cartItem);
+      items.push(cartItem);
     }
+
+    this.items$.next(items);
   }
 
   clearCart(): void {
-    this.items = [];
+    this.items$.next([]);
   }
 
-  getItems(): CartItem[] {
-    return this.items;
+  getItems(): Observable<CartItem[]> {
+    return this.items$.asObservable();
   }
 
   getTotalCost(): number {
-    return this.items.reduce(
-      (interimTotal, item) => interimTotal + item.product.price * item.quantity,
-      0
-    );
+    return this.items$
+      .getValue()
+      .reduce((sum, item) => sum + item.product.price * item.quantity, 0);
   }
 
   getTotalItemsCount(): number {
-    return this.items.reduce(
-      (interimTotalCount, item) => interimTotalCount + item.quantity,
-      0
-    );
+    return this.items$.getValue().reduce((sum, item) => sum + item.quantity, 0);
   }
 
   isCartEmpty(): boolean {
-    return this.items.length === 0;
+    return !this.items$.getValue().length;
   }
 }
