@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartPageComponent } from '../app/components/cart-page/cart-page.component';
-import { ProductsPageComponent } from '../app/components/products-page/products-page.component';
+import { CartComponent } from './cart';
+import { ProductsComponent } from './products';
 
 const routes: Routes = [
   {
-    path: 'products',
-    component: ProductsPageComponent,
+    path: '/products',
+    component: ProductsComponent,
   },
   {
-    path: 'cart',
-    component: CartPageComponent,
+    path: '/cart',
+    component: CartComponent,
+  },
+  {
+    path: '',
+    redirectTo: '/products',
   },
 ];
 
