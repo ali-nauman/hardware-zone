@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CartService } from 'src/app/cart';
 import { ProductCategory } from '../product-category.enum';
 import { Product } from '../product.model';
 import { ProductsService } from '../products.service';
@@ -13,7 +14,10 @@ export class ProductsComponent implements OnInit {
   products$!: Observable<Product[]>;
   productCategories: ProductCategory[] = Object.values(ProductCategory);
 
-  constructor(private productsService: ProductsService) {}
+  constructor(
+    private cartService: CartService,
+    private productsService: ProductsService
+  ) {}
 
   ngOnInit(): void {
     this.products$ = this.productsService.get();
@@ -24,6 +28,6 @@ export class ProductsComponent implements OnInit {
   }
 
   onAddProduct(product: Product) {
-    // todo
+    this.cartService.addToCart(product);
   }
 }
