@@ -8,8 +8,6 @@ import { Product } from './product.model';
 export class FilterByCategoryPipe implements PipeTransform {
   transform(value: Product[] | null, category: ProductCategory): Product[] {
     if (!value) return [];
-    return category === ProductCategory.ALL
-      ? value
-      : value.filter(v => v.category === category);
+    return category === ProductCategory.ALL ? value : value.filter(v => v.category === category);
   }
 }

@@ -9,13 +9,7 @@ import { NavigationBarComponent } from './shared';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NavigationBarComponent,
-    ProductsModule,
-    CartModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, NavigationBarComponent, ProductsModule, CartModule],
   providers: [],
   bootstrap: [AppComponent],
 })

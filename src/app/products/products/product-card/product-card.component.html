@@ -4,24 +4,15 @@
     <div>{{ product.price | currency : 'Rs. ' }}</div>
 
     <div *ngIf="product.stockSize > 0; else outOfStock">
-      <button class="btn btn-primary mb-2" (click)="addToCart(product)">
-        Add to Cart
-      </button>
+      <button class="btn btn-primary mb-2" (click)="addToCart(product)">Add to Cart</button>
     </div>
 
     <ng-template #outOfStock>
-      <div class="text-danger" *ngIf="product.stockSize === 0">
-        Out of stock!
-      </div>
+      <div class="text-danger" *ngIf="product.stockSize === 0">Out of stock!</div>
     </ng-template>
   </div>
 
   <div class="col text-right">
-    <img
-      src="{{ product.imagePath }}"
-      height="200"
-      width="200"
-      alt="{{ product.name }}.jpg"
-    />
+    <img src="{{ product.imagePath }}" height="200" width="200" alt="{{ product.name }}.jpg" />
   </div>
 </div>

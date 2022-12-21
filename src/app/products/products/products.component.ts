@@ -15,10 +15,7 @@ export class ProductsComponent implements OnInit {
   productCategories: ProductCategory[] = Object.values(ProductCategory);
   selectedCategory = ProductCategory.ALL;
 
-  constructor(
-    private cartService: CartService,
-    private productsService: ProductsService
-  ) {}
+  constructor(private cartService: CartService, private productsService: ProductsService) {}
 
   ngOnInit(): void {
     this.products$ = this.productsService.get();

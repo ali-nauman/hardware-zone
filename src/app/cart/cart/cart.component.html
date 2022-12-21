@@ -3,10 +3,7 @@
 
   <ng-container *ngIf="cartItems$ | async as cartItems">
     <div *ngIf="cartItems.length > 0; else emptyCart">
-      <P
-        >Here is your shopping cart. Feel free to add more items, or checkout if
-        you're done!</P
-      >
+      <P>Here is your shopping cart. Feel free to add more items, or checkout if you're done!</P>
 
       <table class="table table-bordered">
         <thead class="thead-dark">
