@@ -1,0 +1,36 @@
+<div class="mt-4 ml-4">
+  <h2>Products</h2>
+  <p>
+    Building a new rig, or just looking for an upgrade? Come and have a look
+    around our product catalogue! We're sure you'll find what you're looking
+    for!
+  </p>
+
+  <div class="row border border-dark">
+    <form>
+      <label>Category</label>
+
+      <select>
+        <option
+          *ngFor="let category of productCategories"
+          [value]="category"
+          (click)="onFilterClick(category)"
+        >
+          {{ category }}
+        </option>
+      </select>
+    </form>
+  </div>
+
+  <div class="row">
+    <div
+      *ngFor="let product of products$ | async"
+      class="col col-xs-12 col-sm-12 col-lg-4 mt-2"
+    >
+      <app-product-card
+        [product]="product"
+        (addProduct)="onAddProduct($event)"
+      ></app-product-card>
+    </div>
+  </div>
+</div>
