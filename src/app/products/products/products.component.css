@@ -1,0 +1,15 @@
+li:hover,
+li:focus {
+  background-color: dodgerblue !important;
+  color: white !important;
+}
+
+li:active {
+  background-color: dodgerblue !important;
+  color: white !important;
+}
+
+li:visited {
+  background-color: red;
+  color: white;
+}
