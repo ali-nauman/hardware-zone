@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CartItem } from '../cart-item.model';
@@ -7,6 +8,8 @@ import { CartService } from '../cart.service';
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
+  standalone: true,
+  imports: [CommonModule],
 })
 export class CartComponent implements OnInit {
   cartItems$!: Observable<CartItem[]>;

@@ -1,5 +1,5 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.css'],
   standalone: true,
-  imports: [BrowserModule, RouterModule],
+  imports: [CommonModule, RouterModule],
 })
 export class NavigationBarComponent {
   links = [
